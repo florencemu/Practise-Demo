@@ -1,0 +1,14 @@
+/*伪静态化环境配置：#LoadModule rewrite_module modules/mod_rewrite.so 在httpd.conf去掉改项#，并项目目录下配置.htaccess文件*/
+
+.htaccess
+<IfModule rewrite_module>
+#写你的rewrite规则
+RewriteEngine On
+#news-id(d+).html$ 是规则  news.php?id=$1 是转发的页面
+#正则 子表达式 捕获 反向引用
+#  "news-id33.html"
+# 可以配置多个规则，匹配的顺序是从上到下
+RewriteRule  news-id(d+).html$   news.php?id=$1
+RewriteRule  news-id(d+).html$     error.php
+</IfModule>
+
