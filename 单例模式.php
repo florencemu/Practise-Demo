@@ -17,5 +17,8 @@ class GetJxSetByInfoIdHandler{
 		return self::$new;
 }
 	private function __clone(){}//声明私有的克隆方法，防止对象被克隆
+	public function __sleep(){
+	return [];//防止对象通过序列化被克隆
+}
 
 }
